@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Изучаю объекты в JavaScript, обращение к объектам, удаление и передор данных</title>
+    <meta name="google-site-verification" content="">
+    <meta name="description" content="Прохожу обучение по JavaScript, учу объекты, 
+    обращение к объектам и пишу некоторые примеры из уроков">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/script_u.js"></script>
+    </head>
+    <body>
+    <div class="clearfix">
+    <div class="col11 mxauto mt4">
+    <div class="mt4 h5 text-center">
+    <a href="../index.html" class="gray no-underline inline-block mx2 mt1 md:mt0">
+        Главная
+    </a>
+    <a href="../prods/index.html" class="gray no-underline inline-block mx2 mt1 md:mt0">
+        Проекты
+    </a>
+    <a href="../portfolio/index.html" class="gray no-underline inline-block mx2 mt1 md:mt0">
+        Портфолио
+    </a>
+    <a target="_blank" href="https://www.youtube.com/channel/UCqw71NQNJ4miVQllDmomnEA" class="gray no-underline inline-block mx2 mt1 md:mt0">
+        YouTube
+    </a>
+    <a target="_blank" href="https://github.com/elhamdev" class="gray no-underline inline-block mx2 mt1 md:mt0">
+        GitHub
+    </a>
+    </div>
+    </div>
+    <main class="col12 md:col8 lg:col6 mxauto mt5 pl2 pr2">
+    <article>
+        <h2 class="post">Объекты в JavaScript</h2>
+        <div class="h5 gray">
+        Создано - 15 июня 2022
+        </div>
+        <div class="post">
+        <p>
+            Объекты
+        </p>
+        <p>
+            Объекты в JavaScript это так называемые ассоциативные массивы, 
+            которые содержатся в других языках программирования, например в php.
+        </p>
+        <p>
+            Создадим для примера простой объект. Объект в JavaScript создается через фигурные скобки. 
+        </p>
+        <div class="language-plaintext highlighter-rouge">
+            <div class="highlight">
+                <pre class="highlight">
+                    <code class="language-plaintext highlighter-rouge">
+    const obj = {
+    name: 'test',
+    width: 1024,
+    height: 1024,
+    colors : {
+        border: 'black',
+        background: 'red',
+        }
+    };
+                    </code>
+                <pre>
+            </div>
+        </div>
+        <p>
+            Обект готов, если нужно получить информацию про какую либо из свойств 
+            из значений объекта, нужно использовать точечный синтаксис,
+            либо синтаксис при помощи квадратных скобок.
+        </p>
+        <div class="language-plaintext highlighter-rouge">
+            <div class="highlight">
+                <pre class="highlight">
+                    <code class="language-plaintext highlighter-rouge">
+    console.log(obj.name);
+    console.log(obj['name']); 
+                    </code>
+                </pre>
+            </div>
+        </div>
+        <p>
+            В ответ вернется информация из строки name = test.
+        </p>
+        <p>
+            Для удаления какого либо значения из объекта используется оператор 
+            delete. Например 
+        </p>
+        <div class="language-plaintext highlighter-rouge">
+            <div class="highlight">
+                <pre class="highlight">
+                    <code class="language-plaintext highlighter-rouge">
+    delete obj.name;
+    console.log(obj); 
+                    </code>
+                </pre>
+            </div>
+        </div>
+        <p>
+            Таким образом просто удалить значение из объекта. 
+            Чтобы перебрать все возможные данные внутри объекта нужно использовать конструкцию for in.
+        </p>
+        <div class="language-plaintext highlighter-rouge">
+            <div class="highlight">
+                <pre class="highlight">
+                    <code class="language-plaintext highlighter-rouge">
+    for (let key in obj) {
+        console.log(`Свойство ${key} имеет значение ${obj[key]}`);
+    }
+                    </code>
+                </pre>
+            </div>
+        </div>
+        <p>
+            Получим вот такой ответ:
+        </p>
+        <div class="language-plaintext highlighter-rouge">
+            <div class="highlight">
+                <pre class="highlight">
+                    <code class="language-plaintext highlighter-rouge">
+    Свойство name имеет значение test
+    Свойство width имеет значение 1024
+    Свойство height имеет значение 1024
+    Свойство colors имеет значение [object Object]
+                    </code>
+                </pre>
+            </div>
+        </div>
+        <p>
+            Для получения данных внутри вложенного объекта нужно запустить
+            перебор for in внутри перебора с помощью условной конструкции if.
+        </p>
+        <div class="language-plaintext highlighter-rouge">
+            <div class="highlight">
+                <pre class="highlight">
+                    <code class="highlight">
+    for (let key in obj) {
+    if (typeof(obj[key]) === 'object') {
+    for (let i in obj[key]) {
+        console.log(`Свойство ${i} имеет значение ${obj[key][i]}`);
+        }
+    }else {
+        console.log(`Свойство ${key} имеет значение ${obj[key]}`);
+        }
+    }
+                    </code>
+                </pre>
+            </div>
+        </div>
+        <p>
+            Ответ будет таким:
+        </p>
+        <div class="language-plaintext highlighter-rouge">
+            <div class="highlight">
+                <pre class="highlight">
+                    <code class="highlight">
+    Свойство name имеет значение test
+    Свойство width имеет значение 1024
+    Свойство height имеет значение 1024
+    Свойство border имеет значение black
+    Свойство background имеет значение red
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </article>
+</main>
+<footer class="h5 sans-serif mt5 mb5">
+    <div class="col10 mxauto text-center">
+    <div class="mt2">
+        <a href="../index.html" class="gray no-underline inline-block mx2 mt1 md:mt0">
+            Главная
+        </a>
+        <a href="../prods/index.html" class="gray no-underline inline-block mx2 mt1 md:mt0">
+            Проекты
+        </a>
+        <a href="../portfolio/index.html" class="gray no-underline inline-block mx2 mt1 md:mt0">
+            Портфолио
+        </a>
+        <a target="_blank" href="https://www.youtube.com/channel/UCqw71NQNJ4miVQllDmomnEA" class="gray no-underline inline-block mx2 mt1 md:mt0">
+            YouTube
+        </a>
+        <a target="_blank" href="https://github.com/elhamdev" class="gray no-underline inline-block mx2 mt1 md:mt0">
+            GitHub
+        </a>
+    </div>
+    </div>
+    <div class="gray text-center mt2"><div class="gray text-center mt2">Все права защищены © elhamdev
+    </div></div>
+</footer>
+</div>
+<script src="../js/script_d.js"></script>
+</body>
+</html>

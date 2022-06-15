@@ -165,16 +165,17 @@ code {
     font-family: monospace;
     font-size: 0.825rem;
     background: #E1E3E4;
-    padding: 0.125rem 0.25rem;
-    border-radius: 2px
+    padding: 0rem 0rem;
+    border-radius: 2px;
+    
 }
 
 pre code {
-    padding: 0.5rem;
     white-space: pre;
     overflow: auto;
     display: block;
-    margin-bottom: 16px
+    margin-bottom: 16px;
+    
 }
 
 .emoji {
