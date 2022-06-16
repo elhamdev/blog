@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Изучаю объекты в JavaScript, обращение к объектам, удаление и передор данных</title>
-    <meta name="google-site-verification" content="">
-    <meta name="description" content="Прохожу обучение по JavaScript, учу объекты, 
-    обращение к объектам и пишу некоторые примеры из уроков">
+    <title>Урок по изучению объектов в JavaScript</title>
+    <meta name="description" content="Создание объектов в JavaScript, обращение к данным,
+    преборка информации внутри объекта, деструктуризация объекта">
     <link rel="stylesheet" href="../css/styles.css">
     <script src="../js/script_u.js"></script>
     </head>
@@ -34,18 +33,16 @@
     </div>
     <main class="col12 md:col8 lg:col6 mxauto mt5 pl2 pr2">
     <article>
-        <h2 class="post">Объекты в JavaScript</h2>
+        <h1 class="post">Объекты в JavaScript</h1>
         <div class="h5 gray">
         Создано - 15 июня 2022
         </div>
         <div class="post">
         <p>
-            Объекты
-        </p>
-        <p>
             Объекты в JavaScript это так называемые ассоциативные массивы, 
-            которые содержатся в других языках программирования, например в php.
+            которые так же содержатся в других языках программирования, например в php.
         </p>
+        <h2 class="post">Создание и переборка объектов</h2>
         <p>
             Создадим для примера простой объект. Объект в JavaScript создается через фигурные скобки. 
         </p>
@@ -165,30 +162,101 @@
                 </pre>
             </div>
         </div>
+        <h2 class="post">Метобы и свойства объектов</h2>
+        <p>
+            Как узнать количество пар "ключ": "значение" в Объекте JavaScript
+        </p>
+        <p>
+            Самый простой способ подсчитать, это перебрать все свойства объекта с помощью for in 
+            и создать отдельную переменную которая послужит счетчиком, 
+            и она будет подсчитывать сколько свойтсв было внутри объекта.
+        </p>
+        <div class="language-plaintext highlighter-rouge">
+            <div class="highlight">
+                <pre class="highlight">
+                    <code>
+    let data = {
+    name: 'Jhon',
+    age: 34,
+    colors: {
+        fontColor: 'red',
+        backGround: 'black',
+            }
+        };
+    let counter = 0;
+    for (let key in data) {
+    if (typeof(data[key]) === 'object') {
+    for (let i in data[key]) {
+        console.log(`Свойство ${i} имеет значение ${data[key][i]}`);
+        counter++;
+            }
+        } else {
+        console.log(`Свойство ${key} имеет значение ${data[key]}`);
+        counter++;
+            }
+        }
+    console.log(counter);
+                    </code>
+                <pre>
+            </div>
+        </div>
+        <p>
+            Ответ будет равен 4
+        </p>
+        <p>
+            Есть еще один метод, кторый называется Object.keys(data) 
+            Данный метод возвращает массив данных с количеством ключей. 
+            Тут важно помнить что и у объектов и у массивов данных есть свойство length 
+            которое выводит точное количество элементов.
+        </p>
+        <div class="language-plaintext highlighter-rouge">
+            <div class="highlight">
+                <pre class="highlight">
+                    <code>
+    Object.keys(data).length
+                    </code>
+                </pre>
+            </div>
+        </div>
+        <h2 class="post">Небольшой итог</h2>
+        <p>
+            Объекты это структуры которые могут сохранять в себе абсолютно
+            любые типы данных в формате "ключ": "значение" 
+            Могут быть так же вложенные объекты, такие как объекты в объекты и массивы в объекты и т.д.
+            Чтобы их перебрать мы можем использовать конструкцию for in
+            Так же получать свойства можно как через точку так и через квадратные скобки.
+            Еще у объектов есть встроенные методы и встроенные свойства которые мы можем 
+            очень удобно использовать при работе. 
+            Ну и самое главное, чтобы наш объект умел что то делать, мы можем записывать 
+            фунции прямо внутри объекта. и таким образом создаются методы объекта.
+        </p>
     </article>
 </main>
 <footer class="h5 sans-serif mt5 mb5">
-    <div class="col10 mxauto text-center">
-    <div class="mt2">
-        <a href="../index.html" class="gray no-underline inline-block mx2 mt1 md:mt0">
-            Главная
-        </a>
-        <a href="../prods/index.html" class="gray no-underline inline-block mx2 mt1 md:mt0">
-            Проекты
-        </a>
-        <a href="../portfolio/index.html" class="gray no-underline inline-block mx2 mt1 md:mt0">
-            Портфолио
-        </a>
-        <a target="_blank" href="https://www.youtube.com/channel/UCqw71NQNJ4miVQllDmomnEA" class="gray no-underline inline-block mx2 mt1 md:mt0">
-            YouTube
-        </a>
-        <a target="_blank" href="https://github.com/elhamdev" class="gray no-underline inline-block mx2 mt1 md:mt0">
-            GitHub
-        </a>
+    <div class="col11 mxauto mt4">
+        <div class="mt4 h5 text-center">
+                <a href="../index.html" class="gray no-underline inline-block mx2 mt1 md:mt0">
+                    Главная
+                </a>
+                <a href="../prods/index.html" class="gray no-underline inline-block mx2 mt1 md:mt0">
+                    Проекты
+                </a>
+                <a href="../portfolio/index.html" class="gray no-underline inline-block mx2 mt1 md:mt0">
+                    Портфолио
+                </a>
+                <a target="_blank" href="https://www.youtube.com/channel/UCqw71NQNJ4miVQllDmomnEA" class="gray no-underline inline-block mx2 mt1 md:mt0">
+                    YouTube
+                </a>
+                <a target="_blank" href="https://github.com/elhamdev" class="gray no-underline inline-block mx2 mt1 md:mt0">
+                    GitHub
+                </a>
+        </div>
     </div>
+    <div class="gray text-center mt2">
+        <div class="gray text-center mt2">
+                Все права защищены © elhamdev
+        </div>
     </div>
-    <div class="gray text-center mt2"><div class="gray text-center mt2">Все права защищены © elhamdev
-    </div></div>
 </footer>
 </div>
 <script src="../js/script_d.js"></script>
