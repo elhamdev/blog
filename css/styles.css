@@ -161,22 +161,28 @@ body {
     text-rendering: optimizeLegibility
 }
 
+pre {
+    display: block;
+}
+
 code {
     font-family: monospace;
     font-size: 0.825rem;
-    background: #E1E3E4;
-    padding: 0rem 0rem;
-    border-radius: 2px;
+    
+    /*padding: 0rem 0rem;*/
+    border-radius: 7px;
+    /*display: none;*/
     
 }
 
 pre code {
-    white-space: pre;
-    overflow: auto;
-    display: block;
+    /*white-space: pre;*/
+    /*overflow: auto;*/
+    display: none;
     margin-bottom: 0px;
     
 }
+
 
 .emoji {
     vertical-align: middle

@@ -7,6 +7,8 @@
     <title>Урок по изучению объектов в JavaScript</title>
     <meta name="description" content="Создание объектов в JavaScript, обращение к данным,
     преборка информации внутри объекта, деструктуризация объекта">
+    
+    <link rel="stylesheet" href="../lib/styles/tokyo-night-dark.min.css">
     <link rel="stylesheet" href="../css/styles.css">
     <script src="../js/script_u.js"></script>
     </head>
@@ -46,19 +48,19 @@
         <p>
             Создадим для примера простой объект. Объект в JavaScript создается через фигурные скобки. 
         </p>
-        <div class="language-plaintext highlighter-rouge">
-            <div class="highlight">
-                <pre class="highlight">
-                    <code class="language-plaintext highlighter-rouge">
+        <div>
+            <div >
+                <pre>
+                    <code class="hljs javascript">
     const obj = {
-    name: 'test',
-    width: 1024,
-    height: 1024,
-    colors : {
-        border: 'black',
-        background: 'red',
-        }
-    };
+        name: 'test',
+        width: 1024,
+        height: 1024,
+            colors : {
+                border: 'black',
+                background: 'red',
+            }
+        };
                     </code>
                 <pre>
             </div>
@@ -68,10 +70,10 @@
             из значений объекта, нужно использовать точечный синтаксис,
             либо синтаксис при помощи квадратных скобок.
         </p>
-        <div class="language-plaintext highlighter-rouge">
-            <div class="highlight">
-                <pre class="highlight">
-                    <code class="language-plaintext highlighter-rouge">
+        <div>
+            <div>
+                <pre>
+                    <code class="hljs javascript">
     console.log(obj.name);
     console.log(obj['name']); 
                     </code>
@@ -85,10 +87,10 @@
             Для удаления какого либо значения из объекта используется оператор 
             delete. Например 
         </p>
-        <div class="language-plaintext highlighter-rouge">
-            <div class="highlight">
-                <pre class="highlight">
-                    <code class="language-plaintext highlighter-rouge">
+        <div>
+            <div>
+                <pre>
+                    <code class="hljs javascript">
     delete obj.name;
     console.log(obj); 
                     </code>
@@ -99,10 +101,10 @@
             Таким образом просто удалить значение из объекта. 
             Чтобы перебрать все возможные данные внутри объекта нужно использовать конструкцию for in.
         </p>
-        <div class="language-plaintext highlighter-rouge">
-            <div class="highlight">
-                <pre class="highlight">
-                    <code class="language-plaintext highlighter-rouge">
+        <div >
+            <div>
+                <pre>
+                    <code class="hljs javascript">
     for (let key in obj) {
         console.log(`Свойство ${key} имеет значение ${obj[key]}`);
     }
@@ -113,10 +115,10 @@
         <p>
             Получим вот такой ответ:
         </p>
-        <div class="language-plaintext highlighter-rouge">
-            <div class="highlight">
-                <pre class="highlight">
-                    <code class="language-plaintext highlighter-rouge">
+        <div>
+            <div>
+                <pre>
+                    <code class="hljs javascript">
     Свойство name имеет значение test
     Свойство width имеет значение 1024
     Свойство height имеет значение 1024
@@ -129,10 +131,10 @@
             Для получения данных внутри вложенного объекта нужно запустить
             перебор for in внутри перебора с помощью условной конструкции if.
         </p>
-        <div class="language-plaintext highlighter-rouge">
-            <div class="highlight">
-                <pre class="highlight">
-                    <code class="highlight">
+        <div>
+            <div>
+                <pre>
+                    <code class="hljs javascript">
     for (let key in obj) {
     if (typeof(obj[key]) === 'object') {
     for (let i in obj[key]) {
@@ -149,10 +151,10 @@
         <p>
             Ответ будет таким:
         </p>
-        <div class="language-plaintext highlighter-rouge">
-            <div class="highlight">
-                <pre class="highlight">
-                    <code class="highlight">
+        <div>
+            <div>
+                <pre>
+                    <code class="hljs javascript">
     Свойство name имеет значение test
     Свойство width имеет значение 1024
     Свойство height имеет значение 1024
@@ -171,10 +173,10 @@
             и создать отдельную переменную которая послужит счетчиком, 
             и она будет подсчитывать сколько свойтсв было внутри объекта.
         </p>
-        <div class="language-plaintext highlighter-rouge">
-            <div class="highlight">
-                <pre class="highlight">
-                    <code>
+        <div>
+            <div>
+                <pre>
+                    <code class="hljs javascript">
     let data = {
     name: 'Jhon',
     age: 34,
@@ -209,10 +211,10 @@
             Тут важно помнить что и у объектов и у массивов данных есть свойство length 
             которое выводит точное количество элементов.
         </p>
-        <div class="language-plaintext highlighter-rouge">
-            <div class="highlight">
-                <pre class="highlight">
-                    <code>
+        <div>
+            <div>
+                <pre>
+                    <code class="hljs javascript">
     Object.keys(data).length
                     </code>
                 </pre>
@@ -260,5 +262,7 @@
 </footer>
 </div>
 <script src="../js/script_d.js"></script>
+<script src="../lib/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
 </body>
 </html>
