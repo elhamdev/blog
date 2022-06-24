@@ -47,7 +47,7 @@
             команды
         </p>
         <pre>
-            <code>
+            <code class="hljs javascript">
 console.dir
             </code>
         </pre>
@@ -55,7 +55,7 @@ console.dir
             Для эксперементов создадим массив. Массивы создаются через квадратные скобки.
         </p>
         <pre>
-            <code>
+            <code class="hljs javascript">
 let array = [1, 2, 3, 4, 6, 8];
             </code>
         </pre>
@@ -69,7 +69,7 @@ let array = [1, 2, 3, 4, 6, 8];
             Обращемся к перемменной в которой лежит этот массив.
         </p>
         <pre>
-            <code>
+            <code class="hljs javascript">
 array.pop();
             </code>
         </pre>
@@ -78,7 +78,7 @@ array.pop();
             последний массив из нашего элемента.
         </p>
         <pre>
-            <code>
+            <code class="hljs javascript">
 console.log(array);
             </code>
         </pre>
@@ -90,7 +90,7 @@ console.log(array);
             и следует задать в аргументах внутри скобок, что мы хотим добавить.
         </p>
         <pre>
-            <code>
+            <code class="hljs javascript">
 array.push(9);
             </code>
         </pre>
@@ -101,7 +101,7 @@ array.push(9);
             Если же говорить про начало массива то существует такие методы как
         </p>
         <pre>
-            <code>
+            <code class="hljs javascript">
 array.shift();
 array.unshift(15);
             </code>
@@ -120,7 +120,7 @@ array.unshift(15);
             Для переборки можно использовать цикл for()
         </p>
         <pre>
-            <code>
+            <code class="hljs javascript">
 let array = [ 1, 2, 3, 4, 5];
     
 for (let i = 0; i < array.length; i++) {
@@ -132,7 +132,7 @@ for (let i = 0; i < array.length; i++) {
             Так же для переборки можно использовать цикл for of
         </p>
         <pre>
-            <code>
+            <code class="hljs javascript">
 let array = [1, 2, 3, 4, 5];
     
 for (let value of array) {
@@ -151,7 +151,7 @@ for (let value of array) {
             Теперь немного про свойсво length()
         </p>
         <pre>
-            <code>
+            <code class="hljs javascript">
 let array = [1, 2, 3, 4, 6, ];
 console.log(array.length);
             </code>
@@ -171,7 +171,7 @@ console.log(array.length);
             Метод forEach() принимает внутри себя callback функцию.
         </p>
         <pre>
-            <code>
+            <code class="hljs javascript">
 let array = [1, 2, 3, 4, 6, ];
     
 array.forEach(function(item, number, array) {
@@ -188,7 +188,7 @@ array.forEach(function(item, number, array) {
             Получим такой ответ:
         </p>
         <pre>
-            <code>
+            <code class="hljs javascript">
 0: 1 внутри массива 1,2,3,4,5
 1: 2 внутри массива 1,2,3,4,5
 2: 3 внутри массива 1,2,3,4,5
@@ -205,7 +205,7 @@ array.forEach(function(item, number, array) {
             Метод split() позволяет создавать массив из строк, например:
         </p>
         <pre>
-            <code>
+            <code class="hljs javascript">
 let str      = prompt('', '');
 let prods    = str.split(', ');
     
@@ -221,7 +221,7 @@ console.log(prods);
             явно указав разделитель.
         </p>
         <pre>
-            <code>
+            <code class="hljs javascript">
 let str      = prompt('', '');
 let prods    = str.split(', ');
     
@@ -236,7 +236,7 @@ console.log(prods.join('; '));
             Метод сортировки предназначен для сортировки данных внутри массива
         </p>
         <pre>
-            <code>
+            <code class="hljs javascript">
 let str      = prompt('', '');
 let prods    = str.split(', ');
 prods.sort();
@@ -250,7 +250,7 @@ console.log(prods);
             добавлять функцию в аргумент метода.
         </p>
         <pre>
-            <code>
+            <code class="hljs javascript">
 let str      = prompt('', '');
 let prods    = str.split(', ');
 prods.sort(sortNums);
