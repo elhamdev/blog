@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Массивы в языке JavaScript | elhamdev </title>
+    <meta name="description" content="Урок по изучению массивов в языке JavaScript, создание массивов,
+    обращение к данным, сортировка, добавление и удание">
+    <link rel="stylesheet" href="../lib/styles/tokyo-night-dark.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/script_u.js"></script>
+    </head>
+    <body>
+    <div class="clearfix">
+    <div class="col11 mxauto mt4">
+    <div class="mt4 h5 text-center">
+    <a href="../index.html" class="gray no-underline inline-block mx2 mt1 md:mt0">
+        Главная
+    </a>
+    <a href="../prods/index.html" class="gray no-underline inline-block mx2 mt1 md:mt0">
+        Проекты
+    </a>
+    <a href="../portfolio/index.html" class="gray no-underline inline-block mx2 mt1 md:mt0">
+        Портфолио
+    </a>
+    <a target="_blank" href="https://www.youtube.com/channel/UCqw71NQNJ4miVQllDmomnEA" class="gray no-underline inline-block mx2 mt1 md:mt0">
+        YouTube
+    </a>
+    <a target="_blank" href="https://github.com/elhamdev" class="gray no-underline inline-block mx2 mt1 md:mt0">
+        GitHub
+    </a>
+    </div>
+    </div>
+    <main class="col12 md:col8 lg:col6 mxauto mt5 pl2 pr2">
+    <article>
+        <h2 class="post">Массивы в JavaScript</h2>
+        <div class="h5 gray">
+        Создано - 25 июня 2022
+        </div>
+        <h3>Создание и структура данных в массиве</h3>
+        <div class="post">
+        <p>
+            Массивы данных это структуры которые содержат элементы по порядку. 
+            Это может быть массив с разными типами данных. 
+            Все свойства которые содержат массивы можно вывести с помощью 
+            команды
+        </p>
+        <pre>
+            <code>
+console.dir
+            </code>
+        </pre>
+        <p>
+            Для эксперементов создадим массив. Массивы создаются через квадратные скобки.
+        </p>
+        <pre>
+            <code>
+let array = [1, 2, 3, 4, 6, 8];
+            </code>
+        </pre>
+        <p>
+            Нумерация данных в массиве данных начинается с 0. Стоит помнить об этом!
+        </p>
+        <p>
+            Часто при работе с массивами данных, нужно либо добавить либо удалить
+            свойства. Либо в начале массива либо в конце. 
+            Для начала возьмем методы которые работают именно с концом массива.
+            Обращемся к перемменной в которой лежит этот массив.
+        </p>
+        <pre>
+            <code>
+array.pop();
+            </code>
+        </pre>
+        <p>
+            Первый метод называется 'pop' на самом деле он всего лижь удаляет 
+            последний массив из нашего элемента.
+        </p>
+        <pre>
+            <code>
+console.log(array);
+            </code>
+        </pre>
+        <p>
+            При выполнении кода увидим что наш массив стал меньше на один элемент.
+        </p>
+        <p>
+            Для добавления элемента нужно использовать следующий метод,
+            и следует задать в аргументах внутри скобок, что мы хотим добавить.
+        </p>
+        <pre>
+            <code>
+array.push(9);
+            </code>
+        </pre>
+        <p>
+            Я задал число 9 которое будет пушиться в конец массива.
+        </p>
+        <p>
+            Если же говорить про начало массива то существует такие методы как
+        </p>
+        <pre>
+            <code>
+array.shift();
+array.unshift(15);
+            </code>
+        </pre>
+        <p>
+            Метод array.shift();  удаляет первое свойство в массиве
+        </p>
+        <p>
+            Метот array.unshift(15); добавляет в начало свойств массива данные из 
+            из скобок которые указать в виде аргументов.
+        </p>
+        <p>
+            В реальной практике shift() и unshift() очень редко используются. 
+            Помимо добавления элементов в начало и конец массива, 
+            часто требуется перебрать данные внутри массива. 
+            Для переборки можно использовать цикл for()
+        </p>
+        <pre>
+            <code>
+let array = [ 1, 2, 3, 4, 5];
+    
+for (let i = 0; i < array.length; i++) {
+    console.log(array[i]);
+}
+            </code>
+        </pre>
+        <p>
+            Так же для переборки можно использовать цикл for of
+        </p>
+        <pre>
+            <code>
+let array = [1, 2, 3, 4, 5];
+    
+for (let value of array) {
+    console.log(value);
+}
+            </code>
+        </pre>
+        <p>
+            Данный метод ничем не отличается от цикла for()
+        </p>
+        <p>
+            Конструкция for of() работает только с массиво-подобными сущностями
+            и именно поэтому мы не можем перебирать им объекты.
+        </p>
+        <p>
+            Теперь немного про свойсво length()
+        </p>
+        <pre>
+            <code>
+let array = [1, 2, 3, 4, 6, ];
+console.log(array.length);
+            </code>
+        </pre>
+        <p>
+            Ответ получим 5.
+        </p>
+        <h2 class="post">Метод forEach()</h2>
+        <p>
+            А теперь речь пойдет про самую часто используемую конструкцию
+            этот метод называется forEach()
+            Метод forEach() делает практически тоже самое что и 
+            for() и for of() но с одним существенным отличием. 
+            forEach() можно более тонко настроить.
+        </p>
+        <p>
+            Метод forEach() принимает внутри себя callback функцию.
+        </p>
+        <pre>
+            <code>
+let array = [1, 2, 3, 4, 6, ];
+    
+array.forEach(function(item, number, array) {
+    console.log(`${number}: ${item} внутри массива ${array}`);
+});
+            </code>
+        </pre>
+        <p>
+            Данный метод может принимать внутри себя три аргумента. 
+            Первый аргумент - это item, это тот самый элемент который перебираем. 
+            И назвать данный аргумент можно как угодно. 
+            Следующий аргумент - это номер по порядку внутри массива.
+            Третий аргумент - это ссылка на тот массив который мы перебираем. 
+            Получим такой ответ:
+        </p>
+        <pre>
+            <code>
+0: 1 внутри массива 1,2,3,4,5
+1: 2 внутри массива 1,2,3,4,5
+2: 3 внутри массива 1,2,3,4,5
+3: 4 внутри массива 1,2,3,4,5
+4: 5 внутри массива 1,2,3,4,5
+            </code>
+        </pre>
+        <p>
+            Данный метод позволяет удобно манипулировать 
+            любым массивом данных.
+        </p>
+        <h2 class="post">Метод split</h2>
+        <p>
+            Метод split() позволяет создавать массив из строк, например:
+        </p>
+        <pre>
+            <code>
+let str      = prompt('', '');
+let prods    = str.split(', ');
+    
+console.log(prods);
+            </code>
+        </pre>
+        <p>
+            В ответ получим массив из любых данных введеных пользователем.
+        </p>
+        <h2 class="post">Метод join()</h2>
+        <p>
+            Для того чтобы разделить массив, нужно использовать метод join()
+            явно указав разделитель.
+        </p>
+        <pre>
+            <code>
+let str      = prompt('', '');
+let prods    = str.split(', ');
+    
+console.log(prods.join('; '));
+            </code>
+        </pre>
+        <p>
+            В этом примере метод join() превратил массив в строку.
+        </p>
+        <h2 class="post">Метод sort()</h2>
+        <p>
+            Метод сортировки предназначен для сортировки данных внутри массива
+        </p>
+        <pre>
+            <code>
+let str      = prompt('', '');
+let prods    = str.split(', ');
+prods.sort();
+console.log(prods);
+            </code>
+        </pre>
+        <p>
+            Все строковые данные введенные через prompt() отсортируются в алфавитном порядке. 
+            Следует помнить что метод sort() всегда сортирует элементы как строки.
+            И когда следует отсортировать данные состоящие из чисел нужно 
+            добавлять функцию в аргумент метода.
+        </p>
+        <pre>
+            <code>
+let str      = prompt('', '');
+let prods    = str.split(', ');
+prods.sort(sortNums);
+console.log(prods);
+    
+function sortNums(a, b){
+    return a - b; 
+}
+            </code>
+        </pre>
+        <p>
+            Применив данную функцию метод sort() будет правильно работать и с числами.
+        </p>
+        <h2 class="post">Псевдомассивы</h2>
+        <p>
+            По факту псевдомассивы - это такие же массивы как и обычные за одним исключением,
+            у псевдомассивов нет никаких методов. Это просто структура которая хранит данные просто по пордку.
+        </p>
+        </div>
+    </article>
+</main>
+<footer class="h5 sans-serif mt5 mb5">
+    <div class="col11 mxauto mt4">
+        <div class="mt4 h5 text-center">
+                <a href="../index.html" class="gray no-underline inline-block mx2 mt1 md:mt0">
+                    Главная
+                </a>
+                <a href="../prods/index.html" class="gray no-underline inline-block mx2 mt1 md:mt0">
+                    Проекты
+                </a>
+                <a href="../portfolio/index.html" class="gray no-underline inline-block mx2 mt1 md:mt0">
+                    Портфолио
+                </a>
+                <a target="_blank" href="https://www.youtube.com/channel/UCqw71NQNJ4miVQllDmomnEA" class="gray no-underline inline-block mx2 mt1 md:mt0">
+                    YouTube
+                </a>
+                <a target="_blank" href="https://github.com/elhamdev" class="gray no-underline inline-block mx2 mt1 md:mt0">
+                    GitHub
+                </a>
+        </div>
+    </div>
+    <div class="gray text-center mt2">
+        <div class="gray text-center mt2">
+                Все права защищены © elhamdev
+        </div>
+    </div>
+</footer>
+</div>
+<script src="../js/script_d.js"></script>
+<script src="../lib/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</body>
+</html>
