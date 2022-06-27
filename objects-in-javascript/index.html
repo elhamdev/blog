@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Урок по изучению объектов в JavaScript</title>
+    <title>Объекты в JavaScript</title>
     <meta name="description" content="Создание объектов в JavaScript, обращение к данным,
     преборка информации внутри объекта, деструктуризация объекта">
     
@@ -16,14 +16,14 @@
     <div class="clearfix">
     <div class="col11 mxauto mt4">
     <div class="mt4 h5 text-center">
-    <a href="../index.html" class="gray no-underline inline-block mx2 mt1 md:mt0">
+    <a href="../" class="gray no-underline inline-block mx2 mt1 md:mt0">
         Главная
     </a>
-    <a href="../prods/index.html" class="gray no-underline inline-block mx2 mt1 md:mt0">
+    <a href="../prods/" class="gray no-underline inline-block mx2 mt1 md:mt0">
         Проекты
     </a>
-    <a href="../portfolio/index.html" class="gray no-underline inline-block mx2 mt1 md:mt0">
-        Портфолио
+    <a href="../about/" class="gray no-underline inline-block mx2 mt1 md:mt0">
+        Обо мне
     </a>
     <a target="_blank" href="https://www.youtube.com/channel/UCqw71NQNJ4miVQllDmomnEA" class="gray no-underline inline-block mx2 mt1 md:mt0">
         YouTube
@@ -52,15 +52,15 @@
             <div >
                 <pre>
                     <code class="hljs javascript">
-    const obj = {
-        name: 'test',
-        width: 1024,
-        height: 1024,
-            colors : {
-                border: 'black',
-                background: 'red',
-            }
-        };
+const obj = {
+    name: 'test',
+    width: 1024,
+    height: 1024,
+        colors : {
+            border: 'black',
+            background: 'red',
+        }
+    };
                     </code>
                 <pre>
             </div>
@@ -74,8 +74,8 @@
             <div>
                 <pre>
                     <code class="hljs javascript">
-    console.log(obj.name);
-    console.log(obj['name']); 
+console.log(obj.name);
+console.log(obj['name']); 
                     </code>
                 </pre>
             </div>
@@ -91,8 +91,8 @@
             <div>
                 <pre>
                     <code class="hljs javascript">
-    delete obj.name;
-    console.log(obj); 
+delete obj.name;
+console.log(obj); 
                     </code>
                 </pre>
             </div>
@@ -105,9 +105,9 @@
             <div>
                 <pre>
                     <code class="hljs javascript">
-    for (let key in obj) {
-        console.log(`Свойство ${key} имеет значение ${obj[key]}`);
-    }
+for (let key in obj) {
+    console.log(`Свойство ${key} имеет значение ${obj[key]}`);
+}
                     </code>
                 </pre>
             </div>
@@ -119,10 +119,10 @@
             <div>
                 <pre>
                     <code class="hljs javascript">
-    Свойство name имеет значение test
-    Свойство width имеет значение 1024
-    Свойство height имеет значение 1024
-    Свойство colors имеет значение [object Object]
+Свойство name имеет значение test
+Свойство width имеет значение 1024
+Свойство height имеет значение 1024
+Свойство colors имеет значение [object Object]
                     </code>
                 </pre>
             </div>
@@ -135,15 +135,15 @@
             <div>
                 <pre>
                     <code class="hljs javascript">
-    for (let key in obj) {
-    if (typeof(obj[key]) === 'object') {
-    for (let i in obj[key]) {
-        console.log(`Свойство ${i} имеет значение ${obj[key][i]}`);
-        }
-    }else {
-        console.log(`Свойство ${key} имеет значение ${obj[key]}`);
-        }
+for (let key in obj) {
+if (typeof(obj[key]) === 'object') {
+for (let i in obj[key]) {
+    console.log(`Свойство ${i} имеет значение ${obj[key][i]}`);
     }
+}else {
+    console.log(`Свойство ${key} имеет значение ${obj[key]}`);
+    }
+}
                     </code>
                 </pre>
             </div>
@@ -155,11 +155,11 @@
             <div>
                 <pre>
                     <code class="hljs javascript">
-    Свойство name имеет значение test
-    Свойство width имеет значение 1024
-    Свойство height имеет значение 1024
-    Свойство border имеет значение black
-    Свойство background имеет значение red
+Свойство name имеет значение test
+Свойство width имеет значение 1024
+Свойство height имеет значение 1024
+Свойство border имеет значение black
+Свойство background имеет значение red
                     </code>
                 </pre>
             </div>
@@ -177,27 +177,27 @@
             <div>
                 <pre>
                     <code class="hljs javascript">
-    let data = {
-    name: 'Jhon',
-    age: 34,
-    colors: {
-        fontColor: 'red',
-        backGround: 'black',
-            }
-        };
-    let counter = 0;
-    for (let key in data) {
-    if (typeof(data[key]) === 'object') {
-    for (let i in data[key]) {
-        console.log(`Свойство ${i} имеет значение ${data[key][i]}`);
-        counter++;
-            }
-        } else {
-        console.log(`Свойство ${key} имеет значение ${data[key]}`);
-        counter++;
-            }
+let data = {
+name: 'Jhon',
+age: 34,
+colors: {
+    fontColor: 'red',
+    backGround: 'black',
         }
-    console.log(counter);
+    };
+let counter = 0;
+for (let key in data) {
+if (typeof(data[key]) === 'object') {
+for (let i in data[key]) {
+    console.log(`Свойство ${i} имеет значение ${data[key][i]}`);
+    counter++;
+        }
+    } else {
+    console.log(`Свойство ${key} имеет значение ${data[key]}`);
+    counter++;
+        }
+    }
+console.log(counter);
                     </code>
                 <pre>
             </div>
@@ -215,12 +215,12 @@
             <div>
                 <pre>
                     <code class="hljs javascript">
-    Object.keys(data).length
+Object.keys(data).length
                     </code>
                 </pre>
             </div>
         </div>
-        <h2 class="post">Небольшой итог</h2>
+        <h2 class="post">Итог</h2>
         <p>
             Объекты это структуры которые могут сохранять в себе абсолютно
             любые типы данных в формате "ключ": "значение" 
@@ -237,14 +237,14 @@
 <footer class="h5 sans-serif mt5 mb5">
     <div class="col11 mxauto mt4">
         <div class="mt4 h5 text-center">
-                <a href="../index.html" class="gray no-underline inline-block mx2 mt1 md:mt0">
+                <a href="../" class="gray no-underline inline-block mx2 mt1 md:mt0">
                     Главная
                 </a>
-                <a href="../prods/index.html" class="gray no-underline inline-block mx2 mt1 md:mt0">
+                <a href="../prods/" class="gray no-underline inline-block mx2 mt1 md:mt0">
                     Проекты
                 </a>
-                <a href="../portfolio/index.html" class="gray no-underline inline-block mx2 mt1 md:mt0">
-                    Портфолио
+                <a href="../about/" class="gray no-underline inline-block mx2 mt1 md:mt0">
+                    Обо мне
                 </a>
                 <a target="_blank" href="https://www.youtube.com/channel/UCqw71NQNJ4miVQllDmomnEA" class="gray no-underline inline-block mx2 mt1 md:mt0">
                     YouTube
