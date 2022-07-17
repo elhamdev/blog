@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Объекты в JavaScript</title>
+    <meta name="description" content="Создание объектов в JavaScript, обращение к данным,
+    преборка информации внутри объекта, деструктуризация объекта">
+    
+    <link rel="stylesheet" href="../lib/styles/tokyo-night-dark.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/script_u.js"></script>
+    </head>
+    <body>
+    <div class="clearfix">
+    <div class="col11 mxauto mt4">
+    <div class="mt4 h5 text-center">
+    <a href="../" class="gray no-underline inline-block mx2 mt1 md:mt0">
+        Главная
+    </a>
+    <a href="../prods/" class="gray no-underline inline-block mx2 mt1 md:mt0">
+        Проекты
+    </a>
+    <a href="../about/" class="gray no-underline inline-block mx2 mt1 md:mt0">
+        Обо мне
+    </a>
+    <a target="_blank" href="https://www.youtube.com/channel/UCqw71NQNJ4miVQllDmomnEA" class="gray no-underline inline-block mx2 mt1 md:mt0">
+        YouTube
+    </a>
+    <a target="_blank" href="https://github.com/elhamdev" class="gray no-underline inline-block mx2 mt1 md:mt0">
+        GitHub
+    </a>
+    </div>
+    </div>
+    <main class="col12 md:col8 lg:col6 mxauto mt5 pl2 pr2">
+    <article>
+        <h2 class="post">Поиск ошибок в JavaScript</h2>
+        <div class="h5 gray">
+        Создано - 17 июля 2022
+        </div>
+        <div class="post">
+            <p>
+                Консоль разработчика, это инструмент с которым разработчики
+                сталкиваются постоянно.
+            </p>
+            <p>
+                Вызывается он с помощью "Инспектора Кода".
+            </p>
+            <p>
+                Либо просто нужно нажать правой кнопкой мыши и выбрать пункт 
+                "Исследовать Код Страницы".
+            </p>
+            <p>
+                В консоли есть множество вкладок, первые три.
+                Для примера используем данный кусок кода:
+            </p>
+            <pre>
+                <code class="hljs javascript">
+function hello() {
+    console.log('Hello World');
+}
+hello();
+                
+function hi () {
+    console.log('Say Hi');
+}
+hi();
+                
+let arr = [1, 4, 14, 40, 45],
+    sorted = arr.sort(compareNum);
+
+function compareNum(a, b) {
+    return a - b;
+}
+                </code>
+            </pre>
+            <p>
+                Первая вкладка это - Elements
+                В ней находится всё содержимое HTML тегов, CSS элементов,
+                hover и before элементов, а так же классы.
+            </p>
+            <p>
+                Дальше идёт вкладка Sources
+                В ней находятся все папки и все файлы в проекте,
+                которые нам доступны.
+            </p>
+            <p>
+                Открыв наш код во вкадке Sources, 
+                можно проставить брейкпоинты и посмотреть каждый 
+                шаг выполнения программы.
+            </p>
+            <p>
+                С помощью дебаггера можно посмотреть каждый шаг 
+                сравнивания внутри функции compareNum из примера нашего кода.
+            </p>
+            <p>
+                Так же брейкпоинты можно проставить вручную внутри кода.
+                Для этого следует прописать ключевое слово
+            </p>
+        </div>
+        <pre>
+            <code class="hljs javascript">
+function hello() {
+    console('Hello World');
+    debugger; // брейкпоинт проствленный вручную
+}
+hello();
+            </code>
+        </pre>
+        <p>
+            Теперь код будет останавливаться на месте где написано
+            debugger;
+        </p>
+        <p>
+            Вот таким образом можно отлавливать свои ошибки в консоли разработчика.
+        </p>
+    </article>
+</main>
+<footer class="h5 sans-serif mt5 mb5">
+    <div class="col11 mxauto mt4">
+        <div class="mt4 h5 text-center">
+                <a href="../" class="gray no-underline inline-block mx2 mt1 md:mt0">
+                    Главная
+                </a>
+                <a href="../prods/" class="gray no-underline inline-block mx2 mt1 md:mt0">
+                    Проекты
+                </a>
+                <a href="../about/" class="gray no-underline inline-block mx2 mt1 md:mt0">
+                    Обо мне
+                </a>
+                <a target="_blank" href="https://www.youtube.com/channel/UCqw71NQNJ4miVQllDmomnEA" class="gray no-underline inline-block mx2 mt1 md:mt0">
+                    YouTube
+                </a>
+                <a target="_blank" href="https://github.com/elhamdev" class="gray no-underline inline-block mx2 mt1 md:mt0">
+                    GitHub
+                </a>
+        </div>
+    </div>
+    <div class="gray text-center mt2">
+        <div class="gray text-center mt2">
+                Все права защищены © elhamdev
+        </div>
+    </div>
+</footer>
+</div>
+<script src="../js/script_d.js"></script>
+<script src="../lib/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</body>
+</html>
