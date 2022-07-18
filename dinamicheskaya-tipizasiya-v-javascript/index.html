@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Динамическая типизация в JavaScript | elhamdev</title>
+    <meta name="description" content="Динамическая типизация в JavaScript, как менять тип данных в 
+    JavaScript | elhamdev">
+    
+    <link rel="stylesheet" href="../lib/styles/tokyo-night-dark.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/script_u.js"></script>
+    </head>
+    <body>
+    <div class="clearfix">
+    <div class="col11 mxauto mt4">
+    <div class="mt4 h5 text-center">
+    <a href="../" class="gray no-underline inline-block mx2 mt1 md:mt0">
+        Главная
+    </a>
+    <a href="../prods/" class="gray no-underline inline-block mx2 mt1 md:mt0">
+        Проекты
+    </a>
+    <a href="../about/" class="gray no-underline inline-block mx2 mt1 md:mt0">
+        Обо мне
+    </a>
+    <a target="_blank" href="https://www.youtube.com/channel/UCqw71NQNJ4miVQllDmomnEA" class="gray no-underline inline-block mx2 mt1 md:mt0">
+        YouTube
+    </a>
+    <a target="_blank" href="https://github.com/elhamdev" class="gray no-underline inline-block mx2 mt1 md:mt0">
+        GitHub
+    </a>
+    </div>
+    </div>
+    <main class="col12 md:col8 lg:col6 mxauto mt5 pl2 pr2">
+    <article>
+        <h2 class="post">Динамическая типизация в JavaScript</h2>
+        <div class="h5 gray">
+        Создано - 18 июля 2022
+        </div>
+        <div class="post">
+        <h3>Типы данных в JavaScript</h3>
+        <p>
+            Простые типы данных:
+            Числа, строки, boolean, null, undefined, symbol.
+        </p>
+        <p>
+            Объекты:
+            Массивы, функции, объект даты, регулярные выражения, ошибки.
+        </p>
+        <p>
+            Теперь когда познакомились со всеми типами данных, 
+            можно поговорить про "Динамическую типизацию"
+            Это возможность одного типа данных превращаться в другой.
+        </p>
+        <p>
+            Т.е. число может стать строкой, строка числом.
+        </p>
+        <p>
+            Также стоит помнить что в других языках программирования 
+            есть и статическая типизация данных, 
+            когда число всегда остаётся числом.
+        </p>
+        <p>
+            Первый способ, чтобы превратить любой тип данных
+            в строку, можно использовать "To String" например
+        </p>
+        <pre>
+            <code class="hljs javascript">
+typeof(String(null));  // null превратится в строку
+typeof(String(4));     // число превратится в строку
+            </code>
+        </pre>
+        <p>
+            Второй способ называется конкотинация, 
+            это когда мы какой то тип данных складываем со строкой:
+        </p>
+        <pre>
+            <code class="hljs javascript">
+typeof(5 + '');        // снова тип данных станет строкой
+            </code>
+        </pre>
+        <p>
+            Не большой код для примера
+        </p>
+        <pre>
+            <code class="hljs javascript">
+let num = 5;
+console.log('http://vk.com/feed/' + num);
+let fontSize = 26 + 'px';
+            </code>
+        </pre>
+        <p>
+            Теперь немного о том как превратить любой тип данных в число
+        </p>
+        <p>
+            Первый способ похож на String только нужно использовать Number
+        </p>
+        <pre>
+            <code class="hljs javascript">
+typeof(number('Hi'));  // типом данных будет число
+            </code>
+        </pre>
+        <p>
+            Второй способ это "унарный плюс". 
+            Говоря простыми словами это когда перед какими то данными ставить знак +
+        </p>
+        <pre>
+            <code class="hljs javascript">
+typeof(+'5');   //  тут тоже типом данных станет число 
+            </code>
+        </pre>
+        <p>
+            Например если мы получаем данные от пользователей 
+            через prompt и нужно преобразовать в числовой тип данных
+        </p>
+        <pre>
+            <code class="hljs javascript">
+let answer = +prompt('Hello', ''); // Получим number в любом случае
+            </code>
+        </pre>
+        <p>
+            Третий способ преобразования "To Boolean"
+            true либо false. Нравда или ложь.
+        </p>
+        <p>
+            Типы данных, которые всегда будут выдавать false:
+        </p>
+        <pre>
+            <code class="hljs javascript">
+0, 'string', null, undefined, NaN; // всегда false
+            </code>
+        </pre>
+        <p>
+            Пример кода как переключателя на сайте
+        </p>
+        <pre>
+            <code class="hljs javascript">
+let switcher = null;
+if (switcher) {
+    console.log('Working..');  // Не сработает
+}
+switcher = 1;
+if (switcher) {
+    console.log('Working..');  // Сработает 
+}
+            </code>
+        </pre>
+        <p>
+            Важно помнить, что всё что мы получаем от пользователей 
+            на сайте - всё это строки! 
+            И на основании этих знаний нужно понимать, 
+            что иногда нужно будет преобразовывать полученную информацию 
+            в другой тип данных.
+        </p>
+    </article>
+</main>
+<footer class="h5 sans-serif mt5 mb5">
+    <div class="col11 mxauto mt4">
+        <div class="mt4 h5 text-center">
+                <a href="../" class="gray no-underline inline-block mx2 mt1 md:mt0">
+                    Главная
+                </a>
+                <a href="../prods/" class="gray no-underline inline-block mx2 mt1 md:mt0">
+                    Проекты
+                </a>
+                <a href="../about/" class="gray no-underline inline-block mx2 mt1 md:mt0">
+                    Обо мне
+                </a>
+                <a target="_blank" href="https://www.youtube.com/channel/UCqw71NQNJ4miVQllDmomnEA" class="gray no-underline inline-block mx2 mt1 md:mt0">
+                    YouTube
+                </a>
+                <a target="_blank" href="https://github.com/elhamdev" class="gray no-underline inline-block mx2 mt1 md:mt0">
+                    GitHub
+                </a>
+        </div>
+    </div>
+    <div class="gray text-center mt2">
+        <div class="gray text-center mt2">
+                Все права защищены © elhamdev
+        </div>
+    </div>
+</footer>
+</div>
+<script src="../js/script_d.js"></script>
+<script src="../lib/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</body>
+</html>
