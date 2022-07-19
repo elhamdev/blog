@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Получение элементов со страницы в JavaScript | elhamdev</title>
+    <meta name="description" content="Получение элементов со страницы в JavaScript, методы getElementById, 
+    getElementsByClassName, getElementsByTagName в JavaScript | elhamdev">
+    <link rel="stylesheet" href="../lib/styles/tokyo-night-dark.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/script_u.js"></script>
+    </head>
+    <body>
+    <div class="clearfix">
+    <div class="col11 mxauto mt4">
+    <div class="mt4 h5 text-center">
+    <a href="../" class="gray no-underline inline-block mx2 mt1 md:mt0">
+        Главная
+    </a>
+    <a href="../prods/" class="gray no-underline inline-block mx2 mt1 md:mt0">
+        Проекты
+    </a>
+    <a href="../about/" class="gray no-underline inline-block mx2 mt1 md:mt0">
+        Обо мне
+    </a>
+    <a target="_blank" href="https://www.youtube.com/channel/UCqw71NQNJ4miVQllDmomnEA" class="gray no-underline inline-block mx2 mt1 md:mt0">
+        YouTube
+    </a>
+    <a target="_blank" href="https://github.com/elhamdev" class="gray no-underline inline-block mx2 mt1 md:mt0">
+        GitHub
+    </a>
+    </div>
+    </div>
+    <main class="col12 md:col8 lg:col6 mxauto mt5 pl2 pr2">
+    <article>
+        <h2 class="post">Получение элементов со страницы в JavaScript</h2>
+        <div class="h5 gray">
+        Создано - 19 июля 2022
+        </div>
+        <div class="post">
+        <p>
+            Первое с чем необходимо познакомиться, это такое понятие как - DOM.
+            Или 'Document Object Module' - Объектная модель документа.
+        </p>
+        <p>
+            Весь HTML код является обычным документом. 
+            Этот документ представлен виде дерева узлов. 
+            При этом узлы связаны между собой отношениями 
+            "Родительский - дочерний"
+        </p>
+        <p>
+            Например у тега body - есть множество дочерних элементов, 
+            а у каждого дочернего элемента есть только один родитель - это body.
+        </p>
+        <p>
+            И такая структура вложенности создаётся во время вёрстки. 
+            Когда такой документ сформирован, мы его можем представить
+            в виде объекта. 
+        </p>
+        <p>
+            Именно поэтому и называется - Объектная модель документа. 
+            И как и у любого объекта у него есть свои методы.   
+        </p>
+        <p>
+            Именно эти методы мы и будем использовать, для того чтобы 
+            иметь доступ к определённым элементам на страничке.
+        </p>
+        <p>
+            Чтобы обратиться к DOM нужно использовать такую сущность как 'document'
+        </p>
+        <p>
+            Самый распространённый метод называется getElementById
+        </p>
+        <p>
+            На нашей HTML страничке мы можем назначать 
+            уникальные идентификаторы 'id' и обращаться к ним.
+        </p>
+        <pre>
+            <code class="hljs javascript">
+let box = document.getElementById('box');
+console.log(box); // выведет соержимое переменной
+            </code>
+        </pre>
+        <p>
+            По правилам id может быть только один на всей странице.
+        </p>
+        <p>
+            Помимо этого можно получить доступ к элементам
+            по названию тегов.
+        </p>
+        <p>
+            Но одинаковых тегов на странице может быть огромное количество.
+        </p>
+        <p>
+            При обращении по тегам получим эти элементы в виде коллекции - псевдомассиве.
+        </p>
+        <p>
+            Важно помнить, что у псевдомассивов нет методов.
+        </p>
+        <pre>
+            <code class="hljs javascript">
+let btns = document.getElementsByTagName('button');
+console.log(btns);
+            </code>
+        </pre>
+        <p>
+            Для точного обращения используя данный метод, 
+            следет писать так: 
+        </p>
+        <pre>
+            <code class="hljs javascript">
+let btns = document.getElementsByTagName('button')[1];
+console.log(btns);
+            </code>
+        </pre>
+        <p>
+            Помимо тегов, так же можно использовать и классы.
+        </p>
+        <pre>
+            <code class="hljs javascript">
+let btns = document.getElementsByClassName('btn');
+            </code>
+        </pre>
+        <p>
+            Самый современный и часто используемый метод называется 'querySelectorAll'
+            Во внутрь он принимает CSS селекторы
+        </p>
+        <pre>
+            <code class="hljs javascript">
+let btns = document.querySelectorAll('.btn');
+console.log(btns);
+            </code>
+        </pre>
+        <p>
+            В отличие от остальных способов, querySelectorAll имеет 
+            метод работы который назывется forEach();
+        </p>
+        <p>
+            При использовании данного метода не стоит забывать 
+            ставить точку!
+        </p>
+        <pre>
+            <code class="hljs javascript">
+btns.forEach(item => {
+    console.log(item);
+});
+            </code>
+        </pre>
+        <p>
+            Есть похожий метод который называется просто 'querySelector'
+            но он позволяет получить доступ только к первому элементу. 
+        </p>
+    </article>
+</main>
+<footer class="h5 sans-serif mt5 mb5">
+    <div class="col11 mxauto mt4">
+        <div class="mt4 h5 text-center">
+                <a href="../" class="gray no-underline inline-block mx2 mt1 md:mt0">
+                    Главная
+                </a>
+                <a href="../prods/" class="gray no-underline inline-block mx2 mt1 md:mt0">
+                    Проекты
+                </a>
+                <a href="../about/" class="gray no-underline inline-block mx2 mt1 md:mt0">
+                    Обо мне
+                </a>
+                <a target="_blank" href="https://www.youtube.com/channel/UCqw71NQNJ4miVQllDmomnEA" class="gray no-underline inline-block mx2 mt1 md:mt0">
+                    YouTube
+                </a>
+                <a target="_blank" href="https://github.com/elhamdev" class="gray no-underline inline-block mx2 mt1 md:mt0">
+                    GitHub
+                </a>
+        </div>
+    </div>
+    <div class="gray text-center mt2">
+        <div class="gray text-center mt2">
+                Все права защищены © elhamdev
+        </div>
+    </div>
+</footer>
+</div>
+<script src="../js/script_d.js"></script>
+<script src="../lib/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</body>
+</html>
