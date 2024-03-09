@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>elhamdev</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+
+        <link rel="stylesheet" href="../css/styles.css">
+    </head>
+    <body>
+        <div class="clearfix">
+            <div class="col11 mxauto mt4">
+                <div class="flex align-center justify-center">
+                    <a class="Logo no-underline" href="/">
+                        <div class="h1 serif bold black mb0">El`ham</div>
+                    </a>
+                </div>
+                <div class="Sponsor col col12 md:col2">
+                    <div></div>
+                </div>
+            </div>
+            <main class="col12 md:col8 lg:col6 mxauto mt5 pl2 pr2">
+                <article>
+                    <div class="post">
+                        <h2> Логические операторы в JavaScript </h2>
+                        <p>
+                            Лекция про логические операторы
+                        </p>
+                        <p>
+                            Логические выражения на языке JavaScript могут быть объединены, 
+                            для использования в качестве проверки, например паролей. Возьмём к примеру проверку пароля при регистрации. 
+                            Если мы хотим чтобы пароль был не менее 8 символов и более 20 то функция выполняющая такую проверку будет такой
+                        </p>
+                        <pre>
+<code>const isStrongPassword = (password) => {
+    const length = password.length;
+        return length > 8 && length < 20;
+};
+                              
+isStrongPassword('qwerty'); // false
+isStrongPassword('qwerty1234'); // true
+isStrongPassword('zxcvbnmasdfghjkqwertyui'); // false
+</code>
+                        </pre>
+                        <p>
+                            && - означает «И». Все выражение считается истинным только в том случае, 
+                            когда истинен каждый операнд — и слева и справа. Иными словами, && означает «и то, и другое».
+                        </p>
+                        <p>
+                            Кроме &&, часто используется оператор || — «ИЛИ». Он означает «или то, или другое, или оба». 
+                            Операторов И и ИЛИ может быть сколько угодно и их можно комбинировать в любом количестве и любой последовательности.
+                        </p>
+                        <p>
+                            Приоритет операторов И и ИЛИ ниже чем приоритет операторов сравнения, 
+                            поэтому при комбинировании лучше их ставить в скобки. Вот улучшенный пример для проверки пароля
+                        </p>
+                        <pre>
+<code>const isStrongPassword = (password) => {
+    const length = password.length;
+
+    return length > 8 && (hasSpecialChars(password) || hasCapitalChars(password));
+};
+</code>
+                        </pre>
+                        <p>Ниже таблица истинности поведения оператора && И</p><pre>
+<code>(a, true) && (b, true) // ==> true
+(a, true) && (b, false) // ==> false
+(a, false) && (b, true) // ==> false
+(a, false) && (b, false) // ==> false
+</code>
+                        </pre>
+                        <p>
+                            И таблица истинности оператора || ИЛИ
+                        </p>
+<pre><code>(a, true) || (b, true) // ==> true
+(a, true) || (b, false) // ==> true
+(a, false) || (b, true) // ==> true
+(a, false) || (b, false) // ==> false
+</code></pre>
+                    </div>
+                    <h3>Оператор отрицания</h3>
+                    <p>
+                        Помимо операторов && И и || ИЛИ в JavaScript встречается оператор отрицания. 
+                        Он позволяет менять логическое значение на противоположное. 
+                        Обозначается знаком восклицания !
+                    </p>
+                    <p>
+                        Например если есть функция, которая проверяет четность числа, 
+                        то с помощью унарного отрицания можно проверить обратное
+                    </p>
+                    <pre>
+<code>const isEven = (number) => number % 2 === 0;
+
+isEven(10);  // true
+!isEven(10); // false
+</code>
+                    </pre>
+                    <p>
+                        В этом примере просто добавив знак унарного 
+                        отрицания перед вызовом функции мы получили обратное действие.
+                    </p>
+                    <p>
+                        Данный оператор позволяет писать задуманные правила в 
+                        коде без необходимости добавления новых функций.
+                    </p>
+                    <div>
+                        <p>
+                            <br>
+                            <br>
+                            <br>
+                        </p>
+                    </div>
+                </article>
+
+            </main>
+            
+        </div>
+
+    </body>
+</html>
