@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Конспекты по веб-разработке, языкам программирования и технологиям</title>
+        <title>Тернарный оператор в JavaScript</title>
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css">
@@ -14,7 +14,7 @@
             hljs.highlightAll();
         </script>
 
-        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="../css/styles.css">
     </head>
     <body>
         <div class="clearfix">
@@ -25,56 +25,70 @@
                     </a>
                 </div>
                 <div class="mt4 h5 text-center">
-                    <a href="/" class="gray no-underline inline-block mx2 mt1 md:mt0">Главная</a>
+                    <a href="/" class="gray no-underline inline-block mx2 mt1 md:mt0" >Главная</a>
                     <a href="https://www.youtube.com/@elhamdev" class="gray no-underline inline-block mx2 mt1 md:mt0" target="_blank">YouTube</a>
                     <a href="https://github.com/elhamdev" class="gray no-underline inline-block mx2 mt1 md:mt0" target="_blank">GitHub</a>
                     <a href="https://www.codewars.com/users/elhamdev" class="gray no-underline inline-block mx2 mt1 md:mt0" target="_blank">CodeWars</a>
                     <a href="https://htmlacademy.ru/profile/elhamdev" class="gray no-underline inline-block mx2 mt1 md:mt0" target="_blank">HTML Academy</a>
                 </div>
+                <div class="Sponsor col col12 md:col2">
+                    <div></div>
+                </div>
             </div>
             <main class="col12 md:col8 lg:col6 mxauto mt5 pl2 pr2">
                 <article>
-                    <header>
-                        <h2>blog</h2>
-
-                    </header>
                     <div class="post">
+                        <h2> Тернарный оператор в JavaScript </h2>
                         <p>
-                            Конспекты которые я пишу во время прохождения курсов по веб разработке, языков программирования и технологий. 
+                            Лекция про тернарный оператор в JavaScript
                         </p>
-                        <h4 class="mt2">Март 2024</h4>
-                        <ul>
-                            <li class="mb0.5">
-                                <a href="../operator-swith-case-javascript/" class="black">
-                                    Оператор Swith / Case в JavaScript
-                                </a>
-
-                            </li>
-                            <li class="mb0.5">
-                                <a href="../ternarney-operator/" class="black">
-                                Тернарный оператор в JavaScript
-                                </a>
-                            </li>
-                            <li class="mb0.5">
-                                <a href="../logicheskie-operatory-v-javascript/" class="black">
-                                Логические операторы && и || в JavaScript
-                                </a>
-                            </li>
-                            <li class="mb0.5">
-                                <a href="../uslovnye-construksii-v-javascript/" class="black">
-                                Условные конструкторы if else в JavaScript
-                                </a>
-                            </li>
-                        </ul>
-                        
-
-                        
-                    </div>
+                        <p>
+                            Возьмем функцию которая возвращает модуль переданного числа
+                        </p>
+                        <pre>
+<code>const abs = (number) => {
+    if (number >= 0) {
+      return number;
+    }
+  
+    return -number;
+  };
+  
+  abs(10); // 10
+  abs(-10); // 10
+</code>
+                        </pre>
+                        <p>
+                            Можно ли записать это более кратко? С использованием return "ответ в зависимости от условия"
+                            Для этого рядом с return должно быть выражение, но if это инструкция. 
+                            В JavaScript есть выражение, аналогичное if-else, но при этом это выражение. Она называется тернарный оператор.
+                        </p>
+                        <p>
+                            Тернарный оператор всегда требует три операнда
+                        </p>
+                        <pre>
+<code>const abs = (number) => {
+    return number >= 0 ? number : -number;
+  };
+</code>
+                        </pre>
+                        <p>
+                            Сокращенный вариант фукции abs с использованием тернарного оператора выглятит следующим образом
+                        </p>
+                        <pre>
+<code>const abs = (number) => (number >= 0 ? number : -number);
+</code>
+                        </pre>
+                        <p>
+                            Стоит обращать внимание на скобки во время написания кода с тернарным оператором.
+                            Их ставить необязаельно, но рекомендуется, 
+                            во избежание ошибок. 
+                        </p>
                     
                 </article>
-                
+
             </main>
-            
+
             <div class="mt4 h5 text-center">
                 <a href="/" class="gray no-underline inline-block mx2 mt1 md:mt0" >Главная</a>
                 <a href="https://www.youtube.com/@elhamdev" class="gray no-underline inline-block mx2 mt1 md:mt0" target="_blank">YouTube</a>
@@ -83,8 +97,7 @@
                 <a href="https://htmlacademy.ru/profile/elhamdev" class="gray no-underline inline-block mx2 mt1 md:mt0" target="_blank">HTML Academy</a>
             </div>
             <br>
-              
-
+            
         </div>
 
     </body>

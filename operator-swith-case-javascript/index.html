@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Оператор Swith / Case в JavaScript</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+
+        <link rel="stylesheet" href="../css/styles.css">
+    </head>
+    <body>
+        <div class="clearfix">
+            <div class="col11 mxauto mt4">
+                <div class="flex align-center justify-center">
+                    <a class="Logo no-underline" href="/">
+                        <div class="h1 serif bold black mb0">El`ham</div>
+                    </a>
+                </div>
+                <div class="mt4 h5 text-center">
+                    <a href="/" class="gray no-underline inline-block mx2 mt1 md:mt0" >Главная</a>
+                    <a href="https://www.youtube.com/@elhamdev" class="gray no-underline inline-block mx2 mt1 md:mt0" target="_blank">YouTube</a>
+                    <a href="https://github.com/elhamdev" class="gray no-underline inline-block mx2 mt1 md:mt0" target="_blank">GitHub</a>
+                    <a href="https://www.codewars.com/users/elhamdev" class="gray no-underline inline-block mx2 mt1 md:mt0" target="_blank">CodeWars</a>
+                    <a href="https://htmlacademy.ru/profile/elhamdev" class="gray no-underline inline-block mx2 mt1 md:mt0" target="_blank">HTML Academy</a>
+                </div>
+                <div class="Sponsor col col12 md:col2">
+                    <div></div>
+                </div>
+            </div>
+            <main class="col12 md:col8 lg:col6 mxauto mt5 pl2 pr2">
+                <article>
+                    <div class="post">
+                        <h2> Оператор Swith / Case в JavaScript </h2>
+                        <p>
+                            Лекция про оператор Swith / Case в JavaScript
+                        </p>
+                        <p>
+                            Другие языки программирования, помимо условной конструкции if, 
+                            поддерживают оператор switch. Это специализированная альтернатива if, 
+                            предназначенная для определенных сценариев. 
+                            Она полезна, когда необходима цепочка if else для проверки на равенство. Например:
+                        </p>
+                        <pre>
+<code>if (status === 'processing') {
+    // Делаем раз
+    } else if (status === 'paid') {
+    // Делаем два
+    } else if (status === 'new') {
+    // Делаем три
+    } else {
+    // Делаем четыре
+    }
+</code>
+                        </pre>
+                        <p>
+                            Одна из особенностей этой сложной проверки заключается в том, 
+                            что каждая ветка зависит от значения переменной status. 
+                            Оператор switch позволяет более кратко и выразительно записать этот код: 
+                        </p>
+                        <pre>
+<code>switch (status) {
+    case 'processing': // status === 'processing' (строгое соответствие)
+      // Делаем раз
+      break;
+    case 'paid': // status === 'paid'
+      // Делаем два
+      break;
+    case 'new': // status === 'new'
+      // Делаем три
+      break;
+    default: // else
+      // Делаем четыре
+  }
+</code>
+                        </pre>
+                        <p>
+                            Оператор switch является сложной конструкцией из-за следующих компонентов:
+                        </p>
+                        <p>
+                            1) Заголовок switch, который содержит ключевое слово switch и переменную, 
+                            по которой будет осуществляться выбор поведения.
+                        </p>
+                        <p>
+                            2) Фигурные скобки, в которых перечислены различные варианты выбора.
+                        </p>
+                        <p>
+                            3) Конструкции case и default, в которых определяется 
+                            поведение для разных значений переменной. 
+                            Каждый case подобен условному оператору if, а default 
+                            аналогичен ветке else. Указывать default необязательно, но рекомендуется для чистоты кода.
+                        </p>
+                        <p>
+                            4) Использование оператора break предотвращает "проваливание" выполнения от одного case к другому без необходимости.
+В итоге, оператор switch представляет собой мощный инструмент для выбора различных вариантов исполнения кода
+                        </p>
+                        <p>
+                            В отличие от других конструкций, фигурные скобки в switch 
+                            не определяют блок кода. Внутри них допускается использовать только синтаксис для case и default. 
+                            Внутри каждого case (и default) 
+                            разрешено выполнять произвольный код, открывая широкие возможности для логики программы
+                        </p>
+                        <pre>
+<code>switch (count) {
+    case 1:
+      // Делаем что-то полезное
+      break;
+    case 2:
+      // Делаем что-то полезное
+      break;
+    default:
+      // Что-то делаем
+  }
+</code>
+                        </pre>
+                        <p>
+                            Иногда выполнение кода внутри блока case может 
+                            привести к завершению функции, содержащей switch. 
+                            В таком случае необходимо вернуть полученный результат наружу. 
+                            Для этого можно воспользоваться двумя способами.
+                        </p>
+                        <p>
+                            Подход первый: объявить переменную перед switch, 
+                            заполнить её внутри блока case, а затем вернуть значение этой переменной в конце функции. 
+                        </p>
+                        <pre>
+<code>(count) => {
+    // Объявляем переменную
+    let result;
+    
+    // Заполняем
+    switch (count) {
+      case 1:
+        result = 'one';
+        break;
+      case 2:
+        result = 'two';
+        break;
+      default:
+        result = null;
+    }
+    
+    // Возвращаем
+    return result;
+    };
+</code>
+                        </pre>
+                        <p>
+                            Более простой и компактный подход заключается в том, 
+                            что вместо создания переменной вы можете использовать оператор return внутри 
+                            блока case для непосредственного возврата значения из функции. 
+                            Поскольку после оператора return 
+                            исполнение функции завершается, можно избавиться от использования оператора break: 
+                        </p>
+                        <pre>
+<code>(count) => {
+    switch (count) {
+      case 1:
+        return 'one';
+      case 2:
+        return 'two';
+      default:
+        return null;
+    }
+  };
+</code>
+                        </pre>
+                        <p>
+                            Использование оператора switch в коде не является абсолютно необходимым 
+                            с технической точки зрения, поскольку можно обойтись без него. 
+                            Его главное преимущество заключается в том, что он позволяет программисту 
+                            более явно выразить свои намерения при проверке конкретных значений переменной. 
+                            Хотя использование switch может привести к небольшому увеличению физического объема кода, 
+                            он делает его более читаемым и понятным, в отличие от цепочки блоков else if. 
+                        </p>
+                    
+                </article>
+
+            </main>
+
+            <div class="mt4 h5 text-center">
+                <a href="/" class="gray no-underline inline-block mx2 mt1 md:mt0" >Главная</a>
+                <a href="https://www.youtube.com/@elhamdev" class="gray no-underline inline-block mx2 mt1 md:mt0" target="_blank">YouTube</a>
+                <a href="https://github.com/elhamdev" class="gray no-underline inline-block mx2 mt1 md:mt0" target="_blank">GitHub</a>
+                <a href="https://www.codewars.com/users/elhamdev" class="gray no-underline inline-block mx2 mt1 md:mt0" target="_blank">CodeWars</a>
+                <a href="https://htmlacademy.ru/profile/elhamdev" class="gray no-underline inline-block mx2 mt1 md:mt0" target="_blank">HTML Academy</a>
+            </div>
+            <br>
+            
+        </div>
+
+    </body>
+</html>
