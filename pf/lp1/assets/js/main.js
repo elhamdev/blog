@@ -52,6 +52,7 @@ let swiperHome = new Swiper('.home__swipper', {
             slidesPerView: 3,
             centeredSlides: 'auto', 
         },
+
         1152: {
             centeredSlides: 'auto',
             spaceBetween: -64,
