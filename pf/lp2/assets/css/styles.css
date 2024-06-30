@@ -444,8 +444,20 @@ img {
   object-fit: cover;
   object-position: center;
 }
-
-
+.visit__shadow {
+  background: linear-gradient(180deg,
+              hsl(0, 0%, 6%) 0%,  
+              hsla(0, 0%, 4%, .1) 50%,
+              hsl(0, 0%, 6%) 100%);
+}
+.visit__data {
+  text-align: center;
+}
+.visit__description {
+  font-size: var(--h2-font-size);
+  color: var(--title-color);
+  margin-bottom: 3rem;
+}
 /*=============== FOOTER ===============*/
 
 
