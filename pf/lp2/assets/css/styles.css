@@ -459,6 +459,28 @@ img {
   margin-bottom: 3rem;
 }
 /*=============== FOOTER ===============*/
+.footer {
+  padding-block: 3rem 2rem;
+}
+
+.footer__container {
+  position: relative;
+  row-gap: 4rem;
+}
+
+.footer__logo {
+  display: inline-block;
+  color: var(--first-color);
+  font-size: var(--h2-font-size);
+  font-family: var(--second-font);
+  margin-bottom: .5rem;
+  transition: color .4s;
+}
+
+.footer__logo:hover {
+  color: var(--first-color-alt);
+}
+
 
 
 /*=============== SCROLL BAR ===============*/
